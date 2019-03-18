@@ -1,0 +1,8 @@
+    --local Atk = AtkParam_Pc:new("WEAPON",2500001)
+    --Atk:AtkPhysCorrection(100)
+    --local Atk1 = AtkParam_Pc:new("WEAPON",3200001)
+    --Atk1:AtkPhysCorrection(100)
+    --local Atk = AtkParam_Pc:new("WEAPON",3500001)
+    --Atk:AtkPhysCorrection(100)
+    --local Atk = AtkParam_Pc:new("WEAPON",5100001)
+    --Atk:AtkPhysCorrection(100)
