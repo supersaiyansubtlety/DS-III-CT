@@ -1,0 +1,11 @@
+This mod lets you change the moveset of almost every weapon in DS III. Most weapons have more than one new moveset, only enable one for each weapon at a time. 
+
+To use it, make sure you have DS III running, the ltest CheatEngine installed (6.8.3 as of this post), and have opened the downloaded .CT file. Then just enable the movesets you want to use. Please note that only uninfused weapon are affected.
+
+That's everything that's necessary, the rest is just more info. Enjoy!
+
+This mod uses the Reverse Souls mod from the DS III modding Discord server (you don't have to download anything extra). It only uses `EquipParamWeapon`, `Attack_Param_Pc`, and `SpEffectVfxParam`. The moveset changes are limited to what these parameters and what my CheatEngine skills allow. 
+Feel free to suggest new movesets but keep in mind that many combinations aren't possible with the above limitations, and also that I only plan to add movesets that make some amount of sense (e.g. no dagger R1s on Great Hammers). 
+Currently the movesets are not extensively tested. Some things do weird amounts of damage, and a (very) few secondary hitboxes don't work (some halberd's 2HR2s' second hits for example). If there's anything really bad that I missed please let me know. 
+I eventually plan to add more cut content and make it so all movesets can be enabled at once, with different movesets on different infusions of weapons, and more altered effects and balance. I also might add a short text tutorial on how to get started making your own movesets. 
+Also if you know some other ways of changing movesets I haven't used please let me know, I'd love to learn.

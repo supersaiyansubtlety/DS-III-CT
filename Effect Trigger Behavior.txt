@@ -1,0 +1,9 @@
+1.Find an effect you want to put the behaviourid on (use memory viewer for effect, then put it in effect helper)
+2.Change the Cycle occurence to 3650 aka dragon body buff (an effect that also has a bullet there are multiple, this is the best one however)
+3. Set motioninterval to 1 or -1 (to fire 1, if you want more, set the motion interval lower)
+4.Record effect again, but this time look for the dragon body buff
+5.Open the dragon body buff in effect helper
+6.Find BehaviourID (it should be 100010)
+7. Change BehaviourID to any value on the spreadsheet and your original effect will now shoot that
+8.If you want to fire a BehaviourID infinitely, set the Cycleoccurence on 3650 to 3650.
+WARNING I DO NOT RECCOMEND STEP 8 AS IT WILL ABSOLUTELY DESTROY YOUR POOR FPS ON SOME EFFECT.
