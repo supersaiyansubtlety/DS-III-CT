@@ -3,41 +3,50 @@
   <CheatEntries>
     <CheatEntry>
       <ID>1337085153</ID>
-      <Description>"OneAtATime"</Description>
+      <Description>"RadioSelect"</Description>
       <Options moHideChildren="1"/>
-      <LastState Activated="1"/>
+      <LastState/>
       <Color>808000</Color>
       <VariableType>Auto Assembler Script</VariableType>
       <AssemblerScript>[ENABLE]
 {$lua}
 if syntaxcheck then return end
------This script makes it so that only one of its child scripts 
------can be active at a time. 
------It does this by making it so that, for each child, 
------when that child is activated, that child deactivates all other children. 
+function RadioSelect(parent)
+  -----This function makes it so that for its calling script, only one of its child scripts
+  -----can be active at a time.
+  -----It does this by making it so that, for each child,
+  -----when that child is activated, that child deactivates all other children.
 
---if this script has children
-if memrec.Count then
-   --for every child
-   for i = 0,memrec.Count-1 do
-       --set OnActivate for this child
-       memrec.Child[i].OnActivate = function(record, before, currentstate)
-          --if before activated
-          if currentstate == false then
-            --for each child of parent (easch sibling + self)
-            for j = 0,memrec.Count-1 do
-              --if sibling is not this child
-              if memrec.Child[j] ~= record then
-                 --deactivate the sibling
-                 memrec.Child[j].Active = false
-              end --if thisParent.Child[j] ~= record then
-            end --for j = 0,thisParent.Count-1 do
-          end --if currentstate == false then
-          --allow activation
-          return true
-       end --end OnActivate
-   end --for i = 0,thisParent.Count-1 do
-end --if memrec.Count then
+  --if this script has children
+  if parent.Count then
+     --for every child
+     for i = 0,parent.Count-1 do
+         --set OnActivate for this child
+         parent.Child[i].OnActivate = function(this, before, currentstate)
+            --if before activated
+            if currentstate == false then
+               if parent.prevChild then
+                  parent.prevChild.Active = false
+               end
+               parent.prevChild = this
+            end --if currentstate == false then
+            --allow activation
+            return true
+         end --end OnActivate
+
+         --set OnDeactivate for this child
+         parent.Child[i].OnDeactivate = function(this, before, currentstate)
+            --if before deactivated
+            if currentstate == false then
+               parent.prevChild = nil
+            end --if currentstate == false then
+            --allow deactivation
+            return true
+         end --end OnDeactivate
+     end --for i = 0,parent.Count-1 do
+  end --if parent.Count then
+end --function RadioSelect(parent)
+RadioSelect(memrec)
 {$asm}
 
 
